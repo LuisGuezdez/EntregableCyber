@@ -23,6 +23,20 @@ public class Usuario
     
     //METODOS
     
+    //Getters
+
+    public String getUsername() 
+    {
+        return username;
+    }
+
+    public double getSaldo() 
+    {
+        return saldo;
+    }
+    
+    
+    
     //Constructor
 
     public Usuario(String nombre, String username, String correo, double saldo, String telf) 
@@ -33,6 +47,7 @@ public class Usuario
         this.saldo = saldo;
         this.telf = telf;
     }
+
     
     
     //Mostrar info de usuario
@@ -44,17 +59,39 @@ public class Usuario
         System.out.println("Teléfono: " + telf);
         System.out.println("Saldo: " + saldo + " €");
         System.out.print("Minutos restantes: ");
-        saldoMinutos();
+        saldoAMinutos();
     }
     
-    private void saldoMinutos()
+    private void saldoAMinutos()
     {
-        double coste = 3, min;
-        min = ( saldo / coste) * 60;
+        //3 es el coste de 1h
+        double min;
+        min = ( saldo / 3) * 60;
         System.out.println(min);
     }
     
+    private void minutosASaldo(double min)
+    {
+        saldo = (min * 3) / 60;
+    }
+    
     //Ingresar Saldo
+    public void ingresarSaldo(double cant)
+    {
+        if (cant > 0)
+            saldo = saldo + cant;
+        else
+            System.out.println("No es posible ingresar tal cantidad");
+    }
+    
+    //Retirar saldo
+    public void retirarSaldo(double cant)
+    {
+        if (cant > 0 && (saldo - cant) >= 0) 
+            saldo = saldo - cant;
+        else
+            System.out.println("No es posible retirar tal cantidad");
+    }
     
     
 }
