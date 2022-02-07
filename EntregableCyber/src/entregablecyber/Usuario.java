@@ -12,9 +12,8 @@ package entregablecyber;
  * @version 1.0
  * @date 2 feb. 2022 18:43:40
  */
-public class Usuario 
-{
-    //ATRIBUTOS
+public class Usuario {
+     //ATRIBUTOS
     private String nombre;
     private String username;
     private String correo;
@@ -24,23 +23,16 @@ public class Usuario
     //METODOS
     
     //Getters
-
-    public String getUsername() 
-    {
+    public String getUsername(){
         return username;
     }
 
-    public double getSaldo() 
-    {
+    public double getSaldo(){
         return saldo;
     }
-    
-    
-    
-    //Constructor
 
-    public Usuario(String nombre, String username, String correo, double saldo, String telf) 
-    {
+    //Constructor
+    public Usuario(String nombre, String username, String correo, double saldo, String telf){
         this.nombre = nombre;
         this.username = username;
         this.correo = correo;
@@ -51,8 +43,7 @@ public class Usuario
     
     
     //Mostrar info de usuario
-    public void verInfo()
-    {
+    public void verInfo(){
         System.out.println("Nombre de usuario: " + username);
         System.out.println("Nombre: " + nombre);
         System.out.println("Correo: " + correo);
@@ -62,36 +53,30 @@ public class Usuario
         saldoAMinutos();
     }
     
-    private void saldoAMinutos()
-    {
+    private void saldoAMinutos(){
         //3 es el coste de 1h
         double min;
         min = ( saldo / 3) * 60;
         System.out.println(min);
     }
     
-    private void minutosASaldo(double min)
-    {
-        saldo = (min * 3) / 60;
-    }
-    
     //Ingresar Saldo
-    public void ingresarSaldo(double cant)
-    {
-        if (cant > 0)
-            saldo = saldo + cant;
+    public void ingresarSaldo(double cant){
+        if (cant > 0){
+             saldo = saldo + cant;
+             System.out.println("Nuevo saldo: " + saldo + " €");
+        }
         else
             System.out.println("No es posible ingresar tal cantidad");
     }
     
     //Retirar saldo
-    public void retirarSaldo(double cant)
-    {
-        if (cant > 0 && (saldo - cant) >= 0) 
+    public void retirarSaldo(double cant){
+        if (cant > 0 && (saldo - cant) >= 0){
             saldo = saldo - cant;
+            System.out.println("Nuevo saldo: " + saldo + " €");
+        }
         else
             System.out.println("No es posible retirar tal cantidad");
     }
-    
-    
 }
